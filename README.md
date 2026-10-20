@@ -1,29 +1,24 @@
-# Unity 6: From Your First Game to Release — book projects
+# Unity 6: From Your First Game to Publishing — book projects
 
-[Русская версия](README.md)
+Two complete Unity 6 (URP) games from Maksim Boiko's book **Unity 6: From Your First Game to Publishing**: full source code, scenes and assets. The code matches the book's listings line by line.
 
-Two complete Unity 6 (URP) games from Maksim Boiko's book **«Unity 6: от первой игры до публикации»** (in Russian): full source code, scenes, assets and ready-to-run builds. The code matches the book listings line by line.
+<!-- TODO: replace with the Amazon link once the book is live -->
+**Get the book:** [Amazon](AMAZON_LINK_HERE)
 
 | | Crystal Collector | Ruins |
 |---|---|---|
 | Genre | physics arcade | third-person action-adventure |
 | Book chapter | 10 | 27–28 |
-| Play in browser | [▶ play](https://livelypuer.github.io/unity6-book-projects/crystal-collector/) | [▶ play](https://livelypuer.github.io/unity6-book-projects/ruins/) |
-| Download | [Releases](https://github.com/LivelyPuer/unity6-book-projects/releases) | [Releases](https://github.com/LivelyPuer/unity6-book-projects/releases) |
 
 ## Crystal Collector
 
-![Crystal Collector](docs/screenshots/crystal_gameplay.jpg)
-
-Roll a ball across floating islands and collect every crystal before time runs out, without falling off or getting hit by spiked balls. Small but complete: main menu, level, timer, win and lose screens, pause, sound and music, particles and post-processing.
+Roll a ball across floating islands and collect every crystal before time runs out, without falling off or getting hit by spike balls. Small but complete: main menu, level, timer, win and lose screens, pause, sound and music, particles and post-processing.
 
 **Controls:** WASD — roll, Space — jump, Esc — pause.
 
 ## Ruins
 
-![Ruins](docs/screenshots/ruins_gameplay.jpg)
-
-A knight explores ancient ruins, fights skeletons, finds a key, pulls a lever, awakens three altars and defeats the guardian — a two-phase boss with clearly telegraphed vulnerability windows. Combat has weight: blade trail during active frames, sparks, hit stop, camera shake and impact sounds. Shrines save the game and become respawn points.
+A knight explores ancient ruins, fights skeletons, finds a key, pulls a lever, awakens three altars and defeats the Guardian—a two-phase boss with clearly telegraphed vulnerability windows. Combat has weight: a blade trail during active frames, sparks, hit stop, camera shake and impact sounds. Shrines save the game and become respawn points.
 
 **Controls:** WASD — move, Shift — sprint, Space — jump, LMB — attack (up to a 3-hit combo), Ctrl — roll, E — interact, Q — potion, Esc — pause. Gamepad supported.
 
@@ -36,22 +31,22 @@ What's inside `Ruins/Assets/_Project`:
 | `Enemies` | skeleton state machine, vision, enemy hitbox, phased boss, arena |
 | `Interaction`, `Items`, `Quests` | interaction, items and inventory, doors, lever, altars, shrines, quest |
 | `Save` | save system with version migrations, player save, level start |
-| `Audio`, `UI` | sounds, adaptive combat music, HUD, popups, pause menu |
+| `Audio`, `UI` | sounds, adaptive combat music, HUD, pop-ups, pause menu |
 | `Core` | shared interfaces, state machine, save IDs |
 | `Editor` | save ID validator, build menu and command-line builds |
 | `Tests` | EditMode and PlayMode tests |
 
 ## How to open
 
-1. Install **Unity 6.3 LTS** (6000.3.26f1 or newer from the 6000.3 branch) via Unity Hub. Add Windows / Mac / Web Build Support modules if you want to build.
+1. Install **Unity 6.3 LTS** (6000.3.26f1 or newer from the 6000.3 branch) via Unity Hub. Add the Windows / Mac / Web Build Support modules if you want to make builds.
 2. Clone the repository:
    ```bash
-   git clone https://github.com/LivelyPuer/unity6-book-projects.git
+   git clone https://github.com/LivelyPuer/unity6-book-projects-en.git
    ```
-3. In Unity Hub choose **Add → Add project from disk** and pick the `CrystalCollector` or `Ruins` folder. The first import takes a few minutes.
+3. In Unity Hub choose **Add › Add project from disk** and pick the `CrystalCollector` or `Ruins` folder. The first import takes a few minutes.
 4. Open `Assets/_Project/Scenes/MainMenu` (Crystal Collector) or `Assets/_Project/Scenes/Ruins` and press **Play**.
 
-Command-line build (script from chapter 32):
+Command-line build (script from Chapter 32):
 
 ```bash
 Unity -batchmode -quit -projectPath Ruins -executeMethod BuildScript.BuildWeb
@@ -63,21 +58,19 @@ Methods: `BuildWindows`, `BuildMac`, `BuildWeb`; output goes to the project's `B
 
 ## The book
 
-**Maksim Boiko. «Unity 6: от первой игры до публикации»** (Russian, 623 pages). A complete hands-on guide: the editor and C# from scratch, physics, URP graphics and shaders, animation (from Mecanim to procedural), design patterns, AI, saves, optimization, testing, builds and publishing to Steam, Google Play, RuStore and itch.io. Available as an e-book on [LitRes](https://www.litres.ru/book/maksim-boiko-34103572/unity-6-ot-pervoi-igry-do-publikatsii-74614187/).
-
-**Paper edition.** We're raising money to print the book, the goal is 1,000,000 ₽. You can [preorder a signed copy for 5,000 ₽](https://app.lava.top/products/4a750350-6e4c-41b2-926d-c6e9bb2e4864) or chip in from 300 ₽.
+**Maksim Boiko. *Unity 6: From Your First Game to Publishing*.** A complete hands-on guide: the editor and C# from scratch, physics, URP graphics and shaders, animation (from Mecanim to procedural), design patterns, AI, saves, optimization, testing, builds and publishing to Steam, Google Play and itch.io.
 
 ## About the author
 
-**Maksim Boiko** is the founder of the game publisher Devilime, a game developer and entrepreneur. He organizes Russia-wide game development events and hackathons: the [Gameday](https://gameday73.ru/) festival and the [LimeGames Hack](https://limegames-hack.ru/) hackathon.
+**Maksim Boiko** is the founder of the game publisher Devilime, a game developer and entrepreneur. He organizes game development events and hackathons: the [Gameday](https://gameday73.ru/) festival and the [LimeGames Hack](https://limegames-hack.ru/) hackathon.
 
 Get in touch:
 
-- Telegram channel GameDev Ulyanovsk (in Russian) — [t.me/gamedev_ulsk](https://t.me/gamedev_ulsk);
+- email — [maxkzboiko@gmail.com](mailto:maxkzboiko@gmail.com);
 - Telegram — [t.me/krest_leveosso](https://t.me/krest_leveosso);
-- email — [maxkzboiko@gmail.com](mailto:maxkzboiko@gmail.com).
+- Telegram channel GameDev Ulyanovsk (in Russian) — [t.me/gamedev_ulsk](https://t.me/gamedev_ulsk).
 
-Found a bug in the projects? Open an [issue](https://github.com/LivelyPuer/unity6-book-projects/issues).
+Found a bug in the projects? Open an [issue](https://github.com/LivelyPuer/unity6-book-projects-en/issues).
 
 ## Licenses
 

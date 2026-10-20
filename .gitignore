@@ -1,4 +1,4 @@
-# Unity: генерируемые папки (только внутри проектов, не в docs)
+# Unity: generated folders (inside the projects only, not in docs)
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -11,7 +11,7 @@
 [Rr]ecordings/
 ProfilerCaptures/
 
-# Проекты IDE
+# IDE projects
 .vs/
 .vscode/
 .idea/
@@ -35,7 +35,7 @@ ProfilerCaptures/
 *.pdb.meta
 *.mdb.meta
 
-# Служебное
+# Misc
 sysinfo.txt
 crashlytics-build.properties
 *.apk
@@ -44,6 +44,6 @@ crashlytics-build.properties
 .DS_Store
 Thumbs.db
 
-# Локальные настройки ИИ-ассистентов
+# Local AI assistant settings
 .mcp.json
 .claude/

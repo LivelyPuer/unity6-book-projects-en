@@ -1,9 +1,9 @@
-# Сторонние ассеты «Кристального сборщика»
+# Crystal Collector: third-party assets
 
-| Папка | Источник | Автор | Лицензия |
+| Folder | Source | Author | License |
 |---|---|---|---|
-| `Kenney/PlatformerKit` | Platformer Kit — блоки с травой, самоцветы, деревья, изгороди | Kenney, <https://kenney.nl/> | CC0 |
-| `Kenney/NatureKit` | Nature Kit — мосты, цветы, кусты, камни | Kenney | CC0 |
+| `Kenney/PlatformerKit` | Platformer Kit: grass blocks, gems, trees, hedges | Kenney, <https://kenney.nl/> | CC0 |
+| `Kenney/NatureKit` | Nature Kit: bridges, flowers, bushes, rocks | Kenney | CC0 |
 
-Тексты лицензий лежат в папках паков (`License.txt`).
-Шрифт Inter (`_Project/Fonts`) — SIL Open Font License. Звуки и музыка в `_Project/Audio` синтезированы для проекта.
+License texts are in the pack folders (`License.txt`).
+The Inter font (`_Project/Fonts`) is under the SIL Open Font License. Sounds and music in `_Project/Audio` were synthesized for this project.
