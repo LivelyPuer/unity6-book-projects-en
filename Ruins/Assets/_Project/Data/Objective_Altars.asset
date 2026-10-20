@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6a76282416b4435ae1ddf4b4d7e052, type: 3}
   m_Name: Objective_Altars
   m_EditorClassIdentifier: Ruins.Gameplay::Objective
-  title: "\u041F\u0440\u043E\u0431\u0443\u0434\u0438\u0442\u044C \u0430\u043B\u0442\u0430\u0440\u0438"
+  title: "Awaken the altars"
   required: 3

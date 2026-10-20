@@ -1104,8 +1104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hazard
   game: {fileID: 0}
-  message: "\u0428\u0438\u043F\u044B \u043E\u043A\u0430\u0437\u0430\u043B\u0438\u0441\u044C
-    \u043E\u0441\u0442\u0440\u044B\u043C\u0438!"
+  message: "Those spikes were sharp!"
 --- !u!1 &6119515065153935917
 GameObject:
   m_ObjectHideFlags: 0

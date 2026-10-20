@@ -6368,7 +6368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+  m_text: "Resume"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -8696,7 +8696,7 @@ GameObject:
   - component: {fileID: 506892236}
   - component: {fileID: 506892235}
   m_Layer: 0
-  m_Name: "\u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430"
+  m_Name: "New Game"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12782,7 +12782,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u042F\u0417\u0412\u0418\u041C!"
+  m_text: "VULNERABLE!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -14241,7 +14241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430"
+  m_text: "New Game"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -14334,7 +14334,7 @@ GameObject:
   - component: {fileID: 851174330}
   - component: {fileID: 851174329}
   m_Layer: 0
-  m_Name: "\u0412\u044B\u0445\u043E\u0434"
+  m_Name: "Quit"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17957,7 +17957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0420\u0423\u0418\u041D\u042B"
+  m_text: "RUINS"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -21193,7 +21193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0410\u0414\u0410\u041D\u0418\u0415"
+  m_text: "OBJECTIVE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -27994,7 +27994,7 @@ MonoBehaviour:
   bossBar: {fileID: 1745100074}
   bossHealth: {fileID: 1592291105}
   playerHealth: {fileID: 1831898406}
-  bossName: "\u0421\u0442\u0440\u0430\u0436 \u0440\u0443\u0438\u043D"
+  bossName: "Guardian of the Ruins"
 --- !u!65 &1631236579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30740,11 +30740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD \u2014 \u0445\u043E\u0434\u044C\u0431\u0430   Shift \u2014 \u0431\u0435\u0433  
-    \u041F\u0440\u043E\u0431\u0435\u043B \u2014 \u043F\u0440\u044B\u0436\u043E\u043A  
-    \u041B\u041A\u041C \u2014 \u0443\u0434\u0430\u0440   Ctrl \u2014 \u043F\u0435\u0440\u0435\u043A\u0430\u0442  
-    E \u2014 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435   Q \u2014 \u0437\u0435\u043B\u044C\u0435  
-    Esc \u2014 \u043F\u0430\u0443\u0437\u0430"
+  m_text: "WASD \u2014 walk   Shift \u2014 run   Space \u2014 jump   LMB \u2014 attack   Ctrl \u2014 roll   E \u2014 interact   Q \u2014 potion   Esc \u2014 pause"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -32330,7 +32326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+  m_text: "Health"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -33222,7 +33218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0421\u0442\u0440\u0430\u0436 \u0440\u0443\u0438\u043D"
+  m_text: "Guardian of the Ruins"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -35855,7 +35851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u044B\u0445\u043E\u0434"
+  m_text: "Quit"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
@@ -36797,7 +36793,7 @@ GameObject:
   - component: {fileID: 2077183410}
   - component: {fileID: 2077183409}
   m_Layer: 0
-  m_Name: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+  m_Name: "Resume"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37052,8 +37048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0431\u0443\u0434\u0438\u0442\u044C \u0430\u043B\u0442\u0430\u0440\u0438:
-    0 / 3"
+  m_text: "Awaken the altars: 0 / 3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
   m_sharedMaterial: {fileID: 121665256834505150, guid: 464f9bf6c5ae24938bf3c4c75610714a, type: 2}
