@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class SaveIdValidator
 {
-    [MenuItem("Ruins/Проверить ID сохранений")]
+    [MenuItem("Ruins/Validate Save IDs")]
     public static void Validate()
     {
         var seen = new HashSet<string>();
@@ -20,13 +20,13 @@ public static class SaveIdValidator
             if (empty || !seen.Add(id.stringValue))
             {
                 id.stringValue = System.Guid.NewGuid().ToString("N");
-                so.ApplyModifiedProperties();   // с поддержкой Undo
+                so.ApplyModifiedProperties();   // with Undo support
                 seen.Add(id.stringValue);
                 fixedCount++;
-                Debug.LogWarning($"Новый ID для {entity.name}", entity);
+                Debug.LogWarning($"New ID for {entity.name}", entity);
             }
         }
-        Debug.Log(fixedCount == 0 ? "Все ID уникальны"
-                                  : $"Исправлено ID: {fixedCount}");
+        Debug.Log(fixedCount == 0 ? "All IDs are unique"
+                                  : $"IDs fixed: {fixedCount}");
     }
 }

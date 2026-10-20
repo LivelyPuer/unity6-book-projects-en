@@ -14,9 +14,9 @@ public static class SaveMigrations
         return data;
     }
 
-    // v1 → v2: появился инвентарь — пустой по умолчанию
-    private static void FromV1(SaveData d) { /* добавить пустую запись */ }
+    // v1 → v2: inventory added, empty by default
+    private static void FromV1(SaveData d) { /* add an empty entry */ }
 
-    // v2 → v3: поле gold переехало в кошелёк
-    private static void FromV2(SaveData d) { /* перенести значение */ }
+    // v2 → v3: the gold field moved to the wallet
+    private static void FromV2(SaveData d) { /* move the value */ }
 }

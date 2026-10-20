@@ -12,7 +12,7 @@ public class HealthPlayModeTests
         var health = go.AddComponent<Health>();
         bool died = false;
         health.Died += () => died = true;
-        yield return null;   // дать отработать Awake/Start
+        yield return null;   // let Awake/Start run
 
         health.TakeDamage(1000f, Vector3.zero);
 

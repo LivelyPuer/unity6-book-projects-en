@@ -28,7 +28,7 @@ public class Interactor : MonoBehaviour
 
             Vector3 to = hits[i].transform.position - transform.position;
             to.y = 0f;
-            // Предпочитаем то, что впереди и ближе
+            // Prefer what is in front and closer
             float score = Vector3.Dot(transform.forward, to.normalized)
                         - to.magnitude * 0.3f;
             if (score > bestScore) { bestScore = score; best = it; }

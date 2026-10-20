@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Подбираемый предмет покачивается и вращается — так его видно издалека
+// A pickup bobs and spins so you can spot it from afar
 public class PickupBob : MonoBehaviour
 {
     [SerializeField] private float amplitude = 0.15f;

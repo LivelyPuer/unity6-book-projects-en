@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeLimit = 90f;
     [SerializeField] private PlayerBall player;
 
-    [Header("Звук")]
+    [Header("Sound")]
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioClip collectClip;
     [SerializeField] private AudioClip winClip;
     [SerializeField] private AudioClip loseClip;
 
-    public event Action<int, int> CrystalsChanged; // собрано, всего
-    public event Action<float> TimeChanged;        // осталось, с
+    public event Action<int, int> CrystalsChanged; // collected, total
+    public event Action<float> TimeChanged;        // seconds left
     public event Action<GameState, string> StateChanged;
 
     public GameState State { get; private set; } = GameState.Playing;
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         timeLeft -= Time.deltaTime;
         TimeChanged?.Invoke(Mathf.Max(timeLeft, 0f));
         if (timeLeft <= 0f)
-            Lose("Время вышло!");
+            Lose("Time's up!");
     }
 
     private void OnCrystalCollected(Crystal crystal)
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     private void Win()
     {
-        SetState(GameState.Won, "Все кристаллы собраны!");
+        SetState(GameState.Won, "All crystals collected!");
         PlaySfx(winClip);
     }
 

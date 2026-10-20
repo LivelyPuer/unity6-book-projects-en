@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-// Состояние героя в сохранении: позиция, поворот, предметы
+// Hero state in the save: position, rotation, items
 public class PlayerSave : MonoBehaviour, ISaveable
 {
     [Serializable]
@@ -15,7 +15,7 @@ public class PlayerSave : MonoBehaviour, ISaveable
 
     [SerializeField] private PlayerMotor motor;
     [SerializeField] private PlayerInventory owner;
-    [SerializeField] private ItemData[] knownItems;   // для поиска по id
+    [SerializeField] private ItemData[] knownItems;   // for lookup by id
 
     public string CaptureJson()
     {

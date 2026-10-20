@@ -15,6 +15,6 @@ public class ObjectiveView : MonoBehaviour
     void OnDisable() => objective.Changed -= Redraw;
 
     private void Redraw(Objective o) => label.text = o.Completed
-        ? "Врата святилища открыты"
+        ? "The sanctuary gates are open"
         : $"{o.title}: {o.Progress} / {o.required}";
 }

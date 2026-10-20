@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ruins/Objective")]
 public class Objective : ScriptableObject
 {
-    public string title = "Пробудить алтари";
+    public string title = "Awaken the altars";
     public int required = 3;
 
     [NonSerialized] private readonly HashSet<string> done = new();
@@ -20,5 +20,5 @@ public class Objective : ScriptableObject
         Changed?.Invoke(this);
     }
 
-    public void ResetRuntime() => done.Clear();   // при новой игре
+    public void ResetRuntime() => done.Clear();   // on a new game
 }

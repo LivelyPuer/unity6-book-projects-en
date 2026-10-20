@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// Красные края экрана при уроне: удар чувствуется, даже если
-// игрок не смотрит на полосу здоровья
+// Red screen edges on damage: you feel the hit even if
+// you are not looking at the health bar
 public class DamageVignette : MonoBehaviour
 {
     [SerializeField] private Health health;
     [SerializeField] private Image image;
     [SerializeField] private float peak = 0.8f;
-    [SerializeField] private float fadeSpeed = 2.2f;   // долей в секунду
+    [SerializeField] private float fadeSpeed = 2.2f;   // fraction per second
 
     void OnEnable() => health.Damaged += OnDamaged;
     void OnDisable() => health.Damaged -= OnDamaged;

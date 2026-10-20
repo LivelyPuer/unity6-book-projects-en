@@ -9,11 +9,11 @@ public class EnemyHitReaction : MonoBehaviour
     [SerializeField] private Health health;
     [SerializeField] private Animator animator;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Behaviour brain;  // EnemyBrain или BossController
+    [SerializeField] private Behaviour brain;  // EnemyBrain or BossController
     [SerializeField] private float knockback = 2.5f;
     [SerializeField] private GameObject[] dropOnDeath;
 
-    [Header("Отклик")]
+    [Header("Feedback")]
     [SerializeField] private HitFlash flash;
     [SerializeField] private SoundData hitSound, deathSound;
     [SerializeField] private GameObject deathVfx;
@@ -37,7 +37,7 @@ public class EnemyHitReaction : MonoBehaviour
         SoundPlayer.Instance.Play(hitSound, point);
         Vector3 away = transform.position - point;
         away.y = 0f;
-        agent.Move(away.normalized * knockback * 0.1f); // небольшой отброс
+        agent.Move(away.normalized * knockback * 0.1f); // slight knockback
     }
 
     private void OnDied()

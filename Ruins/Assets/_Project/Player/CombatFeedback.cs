@@ -1,21 +1,21 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-// Отклик боя героя: искры, звук, остановка кадра и тряска камеры
+// Hero combat feedback: sparks, sound, hit stop and camera shake
 public class CombatFeedback : MonoBehaviour
 {
     [SerializeField] private PlayerCombat combat;
     [SerializeField] private Health health;
     [SerializeField] private CinemachineImpulseSource impulse;
-    [SerializeField] private HitFlash hurtFlash;   // красная вспышка героя
+    [SerializeField] private HitFlash hurtFlash;   // hero's red flash
 
-    [Header("Попадание: обычное, сильное, по броне")]
+    [Header("Hit: normal, heavy, armored")]
     [SerializeField] private GameObject hitVfx;
     [SerializeField] private GameObject heavyVfx;
     [SerializeField] private GameObject armorVfx;
     [SerializeField] private SoundData heavySound, armorSound;
 
-    [Header("Урон по герою")]
+    [Header("Damage to Hero")]
     [SerializeField] private SoundData hurtSound;
 
     void OnEnable()
@@ -33,13 +33,13 @@ public class CombatFeedback : MonoBehaviour
     private void OnHitLanded(IDamageable target, Vector3 point)
     {
         float scale = target is Health h ? h.DamageScale : 1f;
-        if (scale < 1f)                          // броня: звон, без паузы
+        if (scale < 1f)                          // armor: clang, no pause
         {
             Spawn(armorVfx, point);
             SoundPlayer.Instance.Play(armorSound, point);
             impulse.GenerateImpulse(0.15f);
         }
-        else if (scale > 1f || combat.IsFinisher) // сильный удар
+        else if (scale > 1f || combat.IsFinisher) // heavy hit
         {
             Spawn(heavyVfx, point);
             SoundPlayer.Instance.Play(heavySound, point);
@@ -48,7 +48,7 @@ public class CombatFeedback : MonoBehaviour
         }
         else
         {
-            Spawn(hitVfx, point);                // звук даёт сама цель
+            Spawn(hitVfx, point);                // target plays the sound
             HitStop.Instance.Freeze(0.05f);
             impulse.GenerateImpulse(0.25f);
         }

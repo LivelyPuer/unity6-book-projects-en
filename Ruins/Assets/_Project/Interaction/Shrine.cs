@@ -7,7 +7,7 @@ public class Shrine : MonoBehaviour, IInteractable
     [SerializeField] private SaveSystem saveSystem;
     [SerializeField] private int saveSlot = 0;
 
-    public string GetPrompt(GameObject actor) => "Отдохнуть";
+    public string GetPrompt(GameObject actor) => "Rest";
     public bool CanInteract(GameObject actor) => true;
 
     public void Interact(GameObject actor)
@@ -16,6 +16,6 @@ public class Shrine : MonoBehaviour, IInteractable
         actor.GetComponent<PlayerRespawn>().RespawnPoint = respawnPoint;
         restVfx.Play();
         saveSystem.Save(saveSlot);
-        Toast.Show("Прогресс сохранён");
+        Toast.Show("Progress saved");
     }
 }

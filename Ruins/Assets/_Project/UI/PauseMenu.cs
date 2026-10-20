@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
         bool paused = !panel.activeSelf;
         panel.SetActive(paused);
         Time.timeScale = paused ? 0f : 1f;
-        playerInput.enabled = !paused;   // клик по кнопке меню — не удар
+        playerInput.enabled = !paused;   // a menu click is not an attack
         Cursor.lockState = paused ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = paused;
     }

@@ -10,19 +10,19 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private PlayerMotor motor;
     [SerializeField] private Animator animator;
 
-    [Header("Хитбокс")]
-    [SerializeField] private Transform hitPoint;     // у клинка меча
+    [Header("Hitbox")]
+    [SerializeField] private Transform hitPoint;     // at the sword blade
     [SerializeField] private float hitRadius = 0.9f;
     [SerializeField] private LayerMask hittable;
 
-    [Header("Комбо")]
+    [Header("Combo")]
     [SerializeField] private float[] comboDamage = { 10f, 12f, 22f };
     [SerializeField] private float bufferTime = 0.3f;
 
-    [Header("Отклик")]
-    [SerializeField] private float lunge = 6f;         // рывок вперёд, м/с
-    [SerializeField] private float aimRadius = 3.5f;   // доводка на цель
-    [SerializeField] private TrailRenderer trail;      // шлейф клинка
+    [Header("Feedback")]
+    [SerializeField] private float lunge = 6f;         // forward lunge, m/s
+    [SerializeField] private float aimRadius = 3.5f;   // aim assist
+    [SerializeField] private TrailRenderer trail;      // blade trail
     [SerializeField] private SoundData swingSound;
 
     private readonly Collider[] hits = new Collider[16];
@@ -67,7 +67,7 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger(AttackId);
     }
 
-    // Развернуться к ближайшему врагу рядом: удар не уходит «в молоко»
+    // Turn to the nearest enemy close by so the swing doesn't miss
     private void AimAtNearest()
     {
         int count = Physics.OverlapSphereNonAlloc(transform.position,
@@ -91,14 +91,14 @@ public class PlayerCombat : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             if (!hits[i].TryGetComponent(out IDamageable target)) continue;
-            if (!hitThisSwing.Add(target)) continue;   // один раз за взмах
+            if (!hitThisSwing.Add(target)) continue;   // once per swing
             Vector3 point = hits[i].ClosestPoint(hitPoint.position);
             target.TakeDamage(comboDamage[comboIndex], point);
             HitLanded?.Invoke(target, point);
         }
     }
 
-    // --- события анимации ---
+    // --- animation events ---
     public void AttackStart()
     {
         hitThisSwing.Clear();
@@ -117,13 +117,13 @@ public class PlayerCombat : MonoBehaviour
 
     public void AttackFinished(int index)
     {
-        if (index != comboIndex) return;   // событие предыдущего клипа
+        if (index != comboIndex) return;   // event from previous clip
         ResetCombo();
         motor.CanMove = true;
     }
 
-    // Прервать удар извне (смерть, оглушение): клип не доиграет
-    // до конца, и событие AttackFinished не придёт
+    // Interrupt the attack from outside (death, stun): the clip won't
+    // finish, and the AttackFinished event won't fire
     public void ResetCombo()
     {
         attacking = comboWindow = hitboxActive = false;

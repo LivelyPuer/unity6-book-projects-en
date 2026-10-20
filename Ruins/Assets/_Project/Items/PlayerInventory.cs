@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Представление и «склейка» с миром Unity
+// The view and the "glue" to the Unity world
 public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private int capacity = 20;

@@ -3,13 +3,13 @@ using UnityEngine;
 [SelectionBase]
 public class Patrol : MonoBehaviour
 {
-    [Header("Маршрут")]
+    [Header("Route")]
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private bool loop = true;
 
-    [Header("Движение")]
+    [Header("Movement")]
     [Min(0f)] [SerializeField] private float speed = 3f;
-    [Min(0f)] [SerializeField] private float turnSpeed = 360f; // градусов/с
+    [Min(0f)] [SerializeField] private float turnSpeed = 360f; // degrees/s
     [Min(0f)] [SerializeField] private float waitTime = 1f;
 
     private int index;
@@ -29,9 +29,9 @@ public class Patrol : MonoBehaviour
 
         Vector3 target = waypoints[index].position;
         Vector3 toTarget = target - transform.position;
-        toTarget.y = 0f; // двигаемся в горизонтальной плоскости
+        toTarget.y = 0f; // move in the horizontal plane
 
-        // Поворот к цели
+        // Turn toward the target
         if (toTarget.sqrMagnitude > 0.0001f)
         {
             Quaternion look = Quaternion.LookRotation(toTarget);
@@ -39,7 +39,7 @@ public class Patrol : MonoBehaviour
                 transform.rotation, look, turnSpeed * Time.deltaTime);
         }
 
-        // Движение к цели без «перелёта»
+        // Move toward the target without overshooting
         transform.position = Vector3.MoveTowards(
             transform.position,
             new Vector3(target.x, transform.position.y, target.z),
@@ -60,7 +60,7 @@ public class Patrol : MonoBehaviour
         {
             int next = index + direction;
             if (next >= waypoints.Length || next < 0)
-                direction = -direction; // туда-обратно
+                direction = -direction; // back and forth
             index += direction;
         }
     }

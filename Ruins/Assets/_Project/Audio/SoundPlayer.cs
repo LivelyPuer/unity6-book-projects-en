@@ -27,7 +27,7 @@ public class SoundPlayer : MonoBehaviour
         sound.lastPlayTime = Time.unscaledTime;
 
         AudioSource src = pool[next];
-        next = (next + 1) % pool.Count; // по кругу: старые звуки вытесняются
+        next = (next + 1) % pool.Count; // round robin: old sounds get replaced
 
         src.transform.position = position;
         src.clip = sound.PickClip();

@@ -8,17 +8,17 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private Health health;
     [SerializeField] private Transform cameraTransform;
 
-    [Header("Бег")]
-    [SerializeField] private float moveSpeed = 5.5f;     // обычный бег
-    [SerializeField] private float sprintSpeed = 8.5f;   // с Shift
+    [Header("Running")]
+    [SerializeField] private float moveSpeed = 5.5f;     // normal run
+    [SerializeField] private float sprintSpeed = 8.5f;   // with Shift
     [SerializeField] private float acceleration = 40f;
     [SerializeField] private float turnSharpness = 16f;
 
-    [Header("Прыжок")]
+    [Header("Jump")]
     [SerializeField] private float jumpHeight = 1.1f;
     [SerializeField] private float gravity = -25f;
 
-    [Header("Перекат")]
+    [Header("Dodge Roll")]
     [SerializeField] private float dodgeSpeed = 11f;
     [SerializeField] private float dodgeDuration = 0.45f;
     [SerializeField] private float invulnerableTime = 0.3f;
@@ -134,12 +134,12 @@ public class PlayerMotor : MonoBehaviour
             1f - Mathf.Exp(-turnSharpness * dt));
     }
 
-    // Толчок, который затухает с ускорением, — рывок при ударе
+    // A push that decays with acceleration: the attack lunge
     public void Nudge(Vector3 velocity) => planarVelocity = velocity;
 
     public void Teleport(Vector3 position, Quaternion rotation)
     {
-        controller.enabled = false;   // иначе контроллер «откатит» позицию
+        controller.enabled = false;   // otherwise the controller reverts it
         transform.SetPositionAndRotation(position, rotation);
         controller.enabled = true;
         planarVelocity = Vector3.zero;

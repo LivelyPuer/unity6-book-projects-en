@@ -10,10 +10,10 @@ public class Health : MonoBehaviour, IDamageable
     public float Max => max;
     public bool IsAlive => Current > 0f;
     public bool Invulnerable { get; set; }
-    public float DamageScale { get; set; } = 1f;   // броня, окна уязвимости
+    public float DamageScale { get; set; } = 1f;   // armor, vulnerability
 
     public event Action<float, float> Changed;
-    public event Action<float, Vector3> Damaged;   // урон, точка удара
+    public event Action<float, Vector3> Damaged;   // damage, hit point
     public event Action Died;
 
     private float invulnerableUntil;

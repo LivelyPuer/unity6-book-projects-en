@@ -18,9 +18,9 @@ public class HitFlash : MonoBehaviour
     private IEnumerator FlashRoutine()
     {
         SetEmission(flashColor);
-        // не зависим от hitstop
+        // unaffected by hit stop
         yield return new WaitForSecondsRealtime(duration);
-        // Снимаем блок свойств: с ним объект выпадает из SRP Batcher
+        // Clear the property block: it kicks the object out of SRP Batcher
         foreach (var r in renderers) r.SetPropertyBlock(null);
     }
 

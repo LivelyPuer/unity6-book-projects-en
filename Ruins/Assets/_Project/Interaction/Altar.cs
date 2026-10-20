@@ -8,7 +8,7 @@ public class Altar : MonoBehaviour, IInteractable, ISaveable
     [SerializeField] private Light glow;
     private bool awakened;
 
-    public string GetPrompt(GameObject actor) => "Пробудить алтарь";
+    public string GetPrompt(GameObject actor) => "Awaken altar";
     public bool CanInteract(GameObject actor) => !awakened;
 
     public void Interact(GameObject actor) => SetAwakened(true, true);

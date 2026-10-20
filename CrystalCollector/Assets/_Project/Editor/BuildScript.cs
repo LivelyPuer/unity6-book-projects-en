@@ -5,19 +5,19 @@ using UnityEngine;
 
 public static class BuildScript
 {
-    [MenuItem("Crystal/Сборка/Windows")]
+    [MenuItem("Crystal/Build/Windows")]
     public static void BuildWindows() =>
         Build(BuildTarget.StandaloneWindows64, "Builds/Windows/CrystalCollector.exe");
 
-    [MenuItem("Crystal/Сборка/macOS")]
+    [MenuItem("Crystal/Build/macOS")]
     public static void BuildMac() =>
         Build(BuildTarget.StandaloneOSX, "Builds/macOS/CrystalCollector.app");
 
-    [MenuItem("Crystal/Сборка/Web")]
+    [MenuItem("Crystal/Build/Web")]
     public static void BuildWeb()
     {
-        // GitHub Pages и многие хостинги не отдают заголовок
-        // Content-Encoding — распаковку возьмёт на себя загрузчик
+        // GitHub Pages and many hosts don't send the
+        // Content-Encoding header, so the loader decompresses
         PlayerSettings.WebGL.decompressionFallback = true;
         Build(BuildTarget.WebGL, "Builds/Web");
     }
@@ -36,10 +36,10 @@ public static class BuildScript
         BuildReport report = BuildPipeline.BuildPlayer(options);
         BuildSummary summary = report.summary;
         Debug.Log($"{target}: {summary.result}, " +
-                  $"{summary.totalSize / (1024 * 1024)} МБ, " +
-                  $"{summary.totalTime.TotalSeconds:F0} с");
+                  $"{summary.totalSize / (1024 * 1024)} MB, " +
+                  $"{summary.totalTime.TotalSeconds:F0} s");
 
-        // На сервере сборки ошибка должна вернуть ненулевой код
+        // On a build server, a failure must return a nonzero code
         if (Application.isBatchMode && summary.result != BuildResult.Succeeded)
             EditorApplication.Exit(1);
     }

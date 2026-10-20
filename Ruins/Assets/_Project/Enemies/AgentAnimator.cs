@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-// Передаёт скорость NavMesh-агента в Animator (дерево передвижения)
+// Feeds the NavMesh agent's speed to the Animator (locomotion tree)
 public class AgentAnimator : MonoBehaviour
 {
     private static readonly int SpeedId = Animator.StringToHash("Speed");

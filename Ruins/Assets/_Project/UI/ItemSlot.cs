@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-// Быстрый слот: количество предмета в инвентаре героя
+// Quick slot: how many of an item the hero is carrying
 public class ItemSlot : MonoBehaviour
 {
     [SerializeField] private PlayerInventory owner;

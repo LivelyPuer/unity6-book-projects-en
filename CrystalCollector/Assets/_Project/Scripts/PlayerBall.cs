@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody), typeof(SphereCollider))]
 public class PlayerBall : MonoBehaviour
 {
-    [Header("Движение")]
+    [Header("Movement")]
     [SerializeField] private float moveForce = 14f;
     [SerializeField] private float maxSpeed = 8f;
 
-    [Header("Прыжок")]
+    [Header("Jump")]
     [SerializeField] private float jumpSpeed = 6f;
     [SerializeField] private LayerMask groundMask = ~0;
 
-    [Header("Ссылки")]
+    [Header("References")]
     [SerializeField] private Transform cameraTransform;
 
     private Rigidbody rb;
@@ -52,8 +52,8 @@ public class PlayerBall : MonoBehaviour
     {
         Vector3 direction = CameraRelative(moveInput);
 
-        // Разгоняемся, только пока не достигли максимальной скорости
-        // (или если пытаемся тормозить/поворачивать)
+        // Accelerate only until we reach the top speed
+        // (or when we are braking/turning)
         Vector3 flat = rb.linearVelocity;
         flat.y = 0f;
         bool belowLimit = flat.magnitude < maxSpeed;

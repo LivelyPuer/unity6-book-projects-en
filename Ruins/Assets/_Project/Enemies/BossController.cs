@@ -4,11 +4,11 @@ using UnityEngine;
 [System.Serializable]
 public class BossAttack
 {
-    public string trigger;          // триггер Animator
+    public string trigger;          // Animator trigger
     public float minRange, maxRange;
-    public float windup = 0.6f;     // от начала клипа до конца удара, с
-    public float recovery = 1f;     // окно уязвимости после удара, с
-    public int phase = 1;           // доступна с этой фазы
+    public float windup = 0.6f;     // clip start to end of strike, s
+    public float recovery = 1f;     // vulnerability window after it, s
+    public int phase = 1;           // available from this phase on
 }
 
 public class BossController : MonoBehaviour
@@ -21,9 +21,9 @@ public class BossController : MonoBehaviour
     [SerializeField] private float phase2Threshold = 0.5f;
     [SerializeField] private float phase2SpeedUp = 1.25f;
 
-    [Header("Уязвимость")]
-    [SerializeField] private float vulnerableDamage = 1.5f;  // в окне
-    [SerializeField] private float armoredDamage = 0.4f;     // вне окна
+    [Header("Vulnerability")]
+    [SerializeField] private float vulnerableDamage = 1.5f;  // in the window
+    [SerializeField] private float armoredDamage = 0.4f;     // outside it
 
     public int Phase { get; private set; } = 1;
     public bool IsVulnerable { get; private set; }
@@ -58,7 +58,7 @@ public class BossController : MonoBehaviour
         BossAttack attack = PickAttack(distance);
         if (attack == null)
         {
-            agent.SetDestination(player.position);   // сблизиться
+            agent.SetDestination(player.position);   // close in
             return;
         }
 
@@ -70,8 +70,8 @@ public class BossController : MonoBehaviour
         last = attack;
     }
 
-    // Событие анимации в конце активных кадров удара: страж
-    // «провалился» и открылся — начинается окно уязвимости
+    // Animation event at the end of the active frames: the Guardian
+    // overextends and opens up, so the vulnerability window starts
     public void AttackEnd()
     {
         if (last == null || !health.IsAlive) return;
@@ -93,7 +93,7 @@ public class BossController : MonoBehaviour
         var options = new List<BossAttack>();
         foreach (var a in attacks)
             if (a.phase <= Phase && distance >= a.minRange
-                && distance <= a.maxRange && a != last)  // без повтора подряд
+                && distance <= a.maxRange && a != last)  // no repeats in a row
                 options.Add(a);
         return options.Count > 0 ? options[Random.Range(0, options.Count)]
                                  : null;
@@ -106,8 +106,8 @@ public class BossController : MonoBehaviour
             Phase = 2;
             SetVulnerable(false);
             animator.SetTrigger("Roar");
-            animator.speed = phase2SpeedUp;   // всё быстрее
-            busyTimer = 2f;                    // пауза на смену фазы
+            animator.speed = phase2SpeedUp;   // faster and faster
+            busyTimer = 2f;                    // pause for the phase change
             health.Invulnerable = true;
             Invoke(nameof(EndPhaseTransition), 2f);
             PhaseChanged?.Invoke(Phase);
@@ -116,7 +116,7 @@ public class BossController : MonoBehaviour
 
     private void EndPhaseTransition() => health.Invulnerable = false;
 
-    // Сброс боя (герой погиб): снова первая фаза и обычная скорость
+    // Fight reset (hero died): back to phase one and normal speed
     public void ResetFight()
     {
         CancelInvoke();

@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-// «Мозг» врага из главы 24, доработанный для «Руин»: удар — анимацией,
-// жетоны атаки, ожидание очереди на дистанции, боевая музыка
+// The enemy "brain" from Chapter 24, extended for Ruins: animated attacks,
+// attack tokens, waiting your turn at a distance, combat music
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBrain : MonoBehaviour
 {
@@ -71,8 +71,8 @@ public class EnemyBrain : MonoBehaviour
 
     void Start()
     {
-        // В сборке агент может появиться раньше, чем NavMeshSurface
-        // загрузит сетку (она делает это в OnEnable), — ставим его заново
+        // In a build the agent may spawn before NavMeshSurface
+        // loads the mesh (it does so in OnEnable), so warp it again
         if (!agent.isOnNavMesh) agent.Warp(transform.position);
         fsm.SetState(patrol);
     }
@@ -92,7 +92,7 @@ public class EnemyBrain : MonoBehaviour
 
     private void ChaseTick()
     {
-        // Пока жетон у других — держим дистанцию и ждём очереди
+        // While someone else holds the token, keep distance and wait
         bool waiting = InRange(holdDistance) && !tokens.TryAcquire(this);
         if (waiting) { agent.ResetPath(); FacePlayer(Time.deltaTime); }
         else agent.SetDestination(lastSeen);
@@ -104,7 +104,7 @@ public class EnemyBrain : MonoBehaviour
         attackTimer -= dt;
         if (attackTimer > 0f) return;
         attackTimer = attackCooldown;
-        animator.SetTrigger(AttackId);   // урон — событиями анимации
+        animator.SetTrigger(AttackId);   // damage comes from anim events
     }
 
     private void FacePlayer(float dt)

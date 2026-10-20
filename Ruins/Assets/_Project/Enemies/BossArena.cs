@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-// Арена босса: при входе героя будит стража и показывает его полосу
+// Boss arena: when the hero enters, wakes the Guardian, shows its bar
 public class BossArena : MonoBehaviour
 {
     [SerializeField] private BossController boss;
     [SerializeField] private CanvasGroup bossBar;
     [SerializeField] private Health bossHealth;
     [SerializeField] private Health playerHealth;
-    [SerializeField] private string bossName = "Страж руин";
+    [SerializeField] private string bossName = "Guardian of the Ruins";
     private bool started;
     private Vector3 home;
     private Quaternion homeRotation;
@@ -33,7 +33,7 @@ public class BossArena : MonoBehaviour
         Toast.Show(bossName);
     }
 
-    // Герой погиб: страж возвращается на место и восстанавливает силы
+    // Hero died: the Guardian goes back to its post and heals up
     private void OnPlayerDied()
     {
         if (!started || !bossHealth.IsAlive) return;
@@ -50,6 +50,6 @@ public class BossArena : MonoBehaviour
     {
         bossBar.alpha = 0f;
         CombatMusic.Engaged.Remove(this);
-        Toast.Show("Страж повержен. Руины свободны!");
+        Toast.Show("The Guardian has fallen. The Ruins are free!");
     }
 }

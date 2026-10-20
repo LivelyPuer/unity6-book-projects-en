@@ -11,7 +11,7 @@ public class HitStop : MonoBehaviour
 
     public void Freeze(float duration, float scale = 0.02f)
     {
-        if (Time.timeScale == 0f) return;          // игра на паузе
+        if (Time.timeScale == 0f) return;          // game is paused
         if (running != null) StopCoroutine(running);
         else resumeScale = Time.timeScale;
         running = StartCoroutine(FreezeRoutine(duration, scale));
@@ -21,7 +21,7 @@ public class HitStop : MonoBehaviour
     {
         Time.timeScale = scale;
         yield return new WaitForSecondsRealtime(duration);
-        // Паузу, поставленную во время остановки кадра, не снимаем
+        // Don't undo a pause that was set during the freeze
         if (Time.timeScale == scale) Time.timeScale = resumeScale;
         running = null;
     }

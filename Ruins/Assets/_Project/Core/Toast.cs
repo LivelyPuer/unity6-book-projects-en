@@ -1,6 +1,6 @@
 using System;
 
-// Всплывающие сообщения: логика публикует, интерфейс показывает
+// Pop-up messages: game logic posts them, the UI shows them
 public static class Toast
 {
     public static event Action<string> Shown;

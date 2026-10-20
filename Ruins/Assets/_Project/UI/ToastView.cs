@@ -21,6 +21,6 @@ public class ToastView : MonoBehaviour
     void Update()
     {
         timer -= Time.unscaledDeltaTime;
-        group.alpha = Mathf.Clamp01(timer / 0.4f);   // плавное исчезание
+        group.alpha = Mathf.Clamp01(timer / 0.4f);   // smooth fade-out
     }
 }

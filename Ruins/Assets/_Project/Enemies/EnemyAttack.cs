@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Хитбокс врага: как у героя, включается событиями анимации удара
+// Enemy hitbox: like the hero's, toggled by attack animation events
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private Transform hitPoint;
     [SerializeField] private float hitRadius = 0.8f;
     [SerializeField] private float damage = 15f;
     [SerializeField] private LayerMask hittable;
-    [SerializeField] private TrailRenderer trail;      // красный шлейф удара
+    [SerializeField] private TrailRenderer trail;      // red swing trail
     [SerializeField] private SoundData swingSound;
 
     private readonly Collider[] hits = new Collider[8];
@@ -16,12 +16,12 @@ public class EnemyAttack : MonoBehaviour
     private bool active;
     private float activeUntil;
 
-    // --- события анимации ---
+    // --- animation events ---
     public void AttackStart()
     {
         hitThisSwing.Clear();
         SetActive(true);
-        activeUntil = Time.time + 0.6f;   // если удар прервали
+        activeUntil = Time.time + 0.6f;   // in case the swing is interrupted
         SoundPlayer.Instance.Play(swingSound, hitPoint.position);
     }
 

@@ -8,13 +8,13 @@ public class LockedDoor : MonoBehaviour, IInteractable, ISaveable
     private bool open;
 
     public string GetPrompt(GameObject actor) =>
-        HasKey(actor) ? "Открыть" : $"Нужен: {requiredKey.displayName}";
+        HasKey(actor) ? "Open" : $"Requires: {requiredKey.displayName}";
 
     public bool CanInteract(GameObject actor) => !open;
 
     public void Interact(GameObject actor)
     {
-        if (!HasKey(actor)) return;   // подсказка уже сообщила о ключе
+        if (!HasKey(actor)) return;   // the prompt already named the key
         if (requiredKey != null && consumeKey)
             Inventory(actor).TryRemove(requiredKey);
         SetOpen(true);

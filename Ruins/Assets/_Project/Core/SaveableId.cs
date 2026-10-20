@@ -6,9 +6,9 @@ public class SaveableId : MonoBehaviour
     [SerializeField] private string id;
     public string Id => id;
 
-    // Вызывается при добавлении компонента в редакторе
+    // Called when the component is added in the Editor
     void Reset() => id = System.Guid.NewGuid().ToString("N");
 
-    [ContextMenu("Сгенерировать новый ID")]
+    [ContextMenu("Generate New ID")]
     private void Regenerate() => id = System.Guid.NewGuid().ToString("N");
 }

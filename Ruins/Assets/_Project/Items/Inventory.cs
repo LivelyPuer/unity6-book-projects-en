@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-// Логика: ничего не знает о Unity, кроме данных предмета
+// Logic: knows nothing about Unity except item data
 public class Inventory
 {
     private readonly Dictionary<ItemData, int> items = new();

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Старт уровня: сброс задания, загрузка сохранения, точка возрождения
+// Level start: reset the objective, load the save, set the respawn point
 public class GameStart : MonoBehaviour
 {
     [SerializeField] private Objective objective;
@@ -15,7 +15,7 @@ public class GameStart : MonoBehaviour
         objective.ResetRuntime();
         respawn.RespawnPoint = startPoint;
         if (saveSystem.TryLoad(slot))
-            Toast.Show("Игра загружена");
+            Toast.Show("Game loaded");
     }
 
     public void NewGame()

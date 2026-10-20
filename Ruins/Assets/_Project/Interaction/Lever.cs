@@ -7,7 +7,7 @@ public class Lever : MonoBehaviour, IInteractable, ISaveable
     [SerializeField] private UnityEvent onPulled;
     private bool pulled;
 
-    public string GetPrompt(GameObject actor) => "Потянуть";
+    public string GetPrompt(GameObject actor) => "Pull";
     public bool CanInteract(GameObject actor) => !pulled;
 
     public void Interact(GameObject actor)
@@ -23,6 +23,6 @@ public class Lever : MonoBehaviour, IInteractable, ISaveable
     {
         pulled = json == "1";
         animator.SetBool("Pulled", pulled);
-        if (pulled) onPulled.Invoke();   // восстановить последствия
+        if (pulled) onPulled.Invoke();   // restore the effects
     }
 }

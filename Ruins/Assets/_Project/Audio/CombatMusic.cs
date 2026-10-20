@@ -5,7 +5,7 @@ public class CombatMusic : MonoBehaviour
 {
     public static readonly HashSet<object> Engaged = new();
 
-    [SerializeField] private AudioSource explore, combat;   // синхронный старт
+    [SerializeField] private AudioSource explore, combat;   // started in sync
     [SerializeField] private float fadeSpeed = 0.7f;
 
     void Start()

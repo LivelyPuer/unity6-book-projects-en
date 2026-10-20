@@ -7,13 +7,13 @@ public class Pickup : MonoBehaviour, IInteractable, ISaveable
     [SerializeField] private SoundData pickupSound;
     private bool taken;
 
-    public string GetPrompt(GameObject actor) => $"Поднять: {item.displayName}";
+    public string GetPrompt(GameObject actor) => $"Pick up: {item.displayName}";
     public bool CanInteract(GameObject actor) => !taken;
 
     public void Interact(GameObject actor)
     {
         var inventory = actor.GetComponent<PlayerInventory>().Inventory;
-        if (!inventory.TryAdd(item, count)) return;   // нет места
+        if (!inventory.TryAdd(item, count)) return;   // no room
         SoundPlayer.Instance.Play(pickupSound, transform.position);
         SetTaken(true);
     }
@@ -21,7 +21,7 @@ public class Pickup : MonoBehaviour, IInteractable, ISaveable
     private void SetTaken(bool value)
     {
         taken = value;
-        gameObject.SetActive(!value);   // не уничтожаем — нужен для сохранения
+        gameObject.SetActive(!value);   // not destroyed: the save needs it
     }
 
     public string CaptureJson() => taken ? "1" : "0";

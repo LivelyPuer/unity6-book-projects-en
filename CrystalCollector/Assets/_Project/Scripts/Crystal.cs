@@ -17,7 +17,7 @@ public class Crystal : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        phase = UnityEngine.Random.value * 10f; // кристаллы не синхронны
+        phase = UnityEngine.Random.value * 10f; // crystals out of sync
     }
 
     void Update()

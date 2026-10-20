@@ -82,7 +82,7 @@ public class SaveSystem : MonoBehaviour
         string temp = path + ".tmp";
         File.WriteAllText(temp, content);
         if (File.Exists(path))
-            File.Replace(temp, path, path + ".bak"); // старая версия → .bak
+            File.Replace(temp, path, path + ".bak"); // old version → .bak
         else
             File.Move(temp, path);
     }

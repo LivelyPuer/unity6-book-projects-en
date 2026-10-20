@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class HealthBarUI : MonoBehaviour
 {
-    [SerializeField] private Health health;    // компонент из главы 9
+    [SerializeField] private Health health;    // component from Chapter 9
     [SerializeField] private Image fill;       // Image Type: Filled
-    [SerializeField] private Image trail;      // светлая полоса под fill
+    [SerializeField] private Image trail;      // light bar under the fill
     [SerializeField] private float trailDelay = 0.4f;
-    [SerializeField] private float trailSpeed = 0.8f; // долей в секунду
+    [SerializeField] private float trailSpeed = 0.8f; // fraction per second
 
     private float target = 1f;
     private float hold;
@@ -19,8 +19,8 @@ public class HealthBarUI : MonoBehaviour
     {
         target = current / max;
         fill.fillAmount = target;
-        if (trail.fillAmount > target) hold = trailDelay; // урон
-        else trail.fillAmount = target;                   // лечение
+        if (trail.fillAmount > target) hold = trailDelay; // damage
+        else trail.fillAmount = target;                   // healing
     }
 
     void Update()

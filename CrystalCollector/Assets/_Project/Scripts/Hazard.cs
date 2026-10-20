@@ -3,7 +3,7 @@ using UnityEngine;
 public class Hazard : MonoBehaviour
 {
     [SerializeField] private GameManager game;
-    [SerializeField] private string message = "Шипы оказались острыми!";
+    [SerializeField] private string message = "Those spikes were sharp!";
 
     void OnCollisionEnter(Collision collision)
     {

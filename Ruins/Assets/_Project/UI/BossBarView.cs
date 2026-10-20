@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Полоса стража подсказывает окно уязвимости: золотая рамка и надпись
+// The Guardian's bar flags the vulnerability window: gold frame, label
 public class BossBarView : MonoBehaviour
 {
     [SerializeField] private BossController boss;

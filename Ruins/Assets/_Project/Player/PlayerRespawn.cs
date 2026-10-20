@@ -16,7 +16,7 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnDied()
     {
-        combat.ResetCombo();   // удар прерван — сбросить его состояние
+        combat.ResetCombo();   // attack interrupted, reset its state
         StartCoroutine(Respawn());
     }
 
@@ -24,7 +24,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         motor.CanMove = false;
         yield return new WaitForSeconds(delay);
-        // здесь — затемнение экрана (SceneLoader из главы 26 или CanvasGroup)
+        // fade the screen here (SceneLoader from Chapter 26 or a CanvasGroup)
         motor.Teleport(RespawnPoint.position, RespawnPoint.rotation);
         animator.SetBool("Dead", false);
         animator.Play("Locomotion", 0, 0f);
