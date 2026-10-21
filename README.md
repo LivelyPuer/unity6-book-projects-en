@@ -9,16 +9,24 @@ Two complete Unity 6 (URP) games from Maksim Boiko's book **Unity 6: From Your F
 |---|---|---|
 | Genre | physics arcade | third-person action-adventure |
 | Book chapter | 10 | 27–28 |
+| Play in the browser | [▶ Play](https://livelypuer.github.io/unity6-book-projects-en/crystal-collector/) | [▶ Play](https://livelypuer.github.io/unity6-book-projects-en/ruins/) |
+| Windows / macOS | [Download](https://github.com/LivelyPuer/unity6-book-projects-en/releases/latest) | [Download](https://github.com/LivelyPuer/unity6-book-projects-en/releases/latest) |
+
+**Play online:** [https://livelypuer.github.io/unity6-book-projects-en/](https://livelypuer.github.io/unity6-book-projects-en/). Ready-made Windows and macOS builds of both games are in [Releases](https://github.com/LivelyPuer/unity6-book-projects-en/releases/latest).
 
 ## Crystal Collector
 
 Roll a ball across floating islands and collect every crystal before time runs out, without falling off or getting hit by spike balls. Small but complete: main menu, level, timer, win and lose screens, pause, sound and music, particles and post-processing.
+
+![Crystal Collector](docs/screenshots/crystal_gameplay.jpg)
 
 **Controls:** WASD — roll, Space — jump, Esc — pause.
 
 ## Ruins
 
 A knight explores ancient ruins, fights skeletons, finds a key, pulls a lever, awakens three altars and defeats the Guardian—a two-phase boss with clearly telegraphed vulnerability windows. Combat has weight: a blade trail during active frames, sparks, hit stop, camera shake and impact sounds. Shrines save the game and become respawn points.
+
+![Ruins](docs/screenshots/ruins_gameplay.jpg)
 
 **Controls:** WASD — move, Shift — sprint, Space — jump, LMB — attack (up to a 3-hit combo), Ctrl — roll, E — interact, Q — potion, Esc — pause. Gamepad supported.
 
@@ -49,11 +57,14 @@ What's inside `Ruins/Assets/_Project`:
 Command-line build (script from Chapter 32):
 
 ```bash
-Unity -batchmode -quit -projectPath Ruins -executeMethod BuildScript.BuildWeb
+Unity -batchmode -quit -buildTarget WebGL -projectPath Ruins \
+  -executeMethod BuildScript.BuildWeb
 ```
 
-Methods: `BuildWindows`, `BuildMac`, `BuildWeb`; output goes to the project's `Builds` folder. Build the web version **first** (or delete `Library/ShaderCache` before it): after desktop builds, the shader cache breaks the web build.
+Methods: `BuildWindows`, `BuildMac`, `BuildWeb`; output goes to the project's `Builds` folder. Build the web version **first** (or delete `Library/ShaderCache` before it): after desktop builds, the shader cache breaks the web build. From the command line, also pass `-buildTarget WebGL` for the web build: if the editor starts on a desktop target, URP strips every Lit shader variant and the web version shows an empty scene.
 
+> **Release builds:** `*-Windows.zip` is Windows 10/11 x64 (unzip and run the `.exe`); `*-macOS.zip` is macOS 13+, Apple Silicon and Intel.
+>
 > **macOS builds** are not signed. On first launch, right-click the app and choose **Open**.
 
 ## The book
