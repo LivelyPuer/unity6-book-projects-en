@@ -3,7 +3,7 @@
 Two complete Unity 6 (URP) games from Maksim Boiko's book **Unity 6: From Your First Game to Publishing**: full source code, scenes and assets. The code matches the book's listings line by line.
 
 <!-- TODO: replace with the Amazon link once the book is live -->
-**Get the book:** [Amazon](AMAZON_LINK_HERE)
+**The book:** coming soon on Amazon (Kindle and paperback).
 
 | | Crystal Collector | Ruins |
 |---|---|---|
