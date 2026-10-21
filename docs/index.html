@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unity 6: From Your First Game to Publishing — book games</title>
+<meta name="description" content="Two games from Maksim Boiko's book Unity 6: From Your First Game to Publishing: Crystal Collector and Ruins. Play in your browser, download builds and source code.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unity 6: From Your First Game to Publishing — book games">
+<meta property="og:description" content="Two open-source games from Maksim Boiko's book: the Crystal Collector arcade and the Ruins action game. Play them right in your browser.">
+<meta property="og:url" content="https://livelypuer.github.io/unity6-book-projects-en/">
+<meta property="og:image" content="https://livelypuer.github.io/unity6-book-projects-en/social-card.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Book",
+ "name": "Unity 6: From Your First Game to Publishing",
+ "author": {
+  "@type": "Person",
+  "name": "Maksim Boiko",
+  "email": "mailto:maxkzboiko@gmail.com",
+  "sameAs": ["https://t.me/krest_leveosso", "https://t.me/gamedev_ulsk"]
+ },
+ "inLanguage": "en",
+ "image": "https://livelypuer.github.io/unity6-book-projects-en/book-cover.jpg",
+ "url": "https://livelypuer.github.io/unity6-book-projects-en/",
+ "description": "A hands-on Unity 6 guide: C# from scratch, physics, URP graphics, animation, AI, saves, optimization, builds and publishing. Two open-source games."
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5eedf; --ink: #2b2e33; --muted: #5f646b; --accent: #d9772b;
+    --red: #c0392b; --card: #fffaf0; --line: #9fb4c8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #1d1f22; --ink: #ece6da; --muted: #a8a196; --card: #26292d; --line: #3b4652; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; color: var(--ink); font: 17px/1.55 "Inter", system-ui, sans-serif;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--line) 28%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--line) 28%, transparent) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: 40px 16px 64px; }
+  .hand { font-family: "Caveat", cursive; font-weight: 700; }
+  header .author { letter-spacing: .28em; font-weight: 700; color: var(--muted); font-size: 14px; }
+  header h1 { font-family: "Caveat", cursive; font-size: clamp(64px, 12vw, 120px); line-height: .9; margin: 10px 0 0; }
+  header h1 span { color: var(--accent); }
+  header .sub { font-family: "Caveat", cursive; font-size: clamp(28px, 5vw, 40px); margin: 4px 0 18px; }
+  header p { max-width: 640px; color: var(--muted); }
+  .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-top: 36px; }
+  .game {
+    background: var(--card); border: 2px solid var(--ink); border-radius: 14px 18px 12px 16px;
+    box-shadow: 4px 5px 0 color-mix(in srgb, var(--ink) 75%, transparent); overflow: hidden;
+  }
+  .game:nth-child(2) { transform: rotate(.5deg); }
+  .game:nth-child(1) { transform: rotate(-.5deg); }
+  .game img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 2px solid var(--ink); }
+  .game .body { padding: 16px 20px 20px; }
+  .game h2 { font-family: "Caveat", cursive; font-size: 38px; margin: 0; line-height: 1; }
+  .game .meta { color: var(--muted); font-size: 14px; margin: 4px 0 10px; }
+  .keys { font-size: 14px; color: var(--muted); margin: 10px 0 16px; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 8px 18px; border: 2px solid var(--ink); border-radius: 10px 12px 9px 11px;
+    color: var(--ink); text-decoration: none; font-weight: 700; background: transparent;
+  }
+  .btn.play { background: var(--accent); color: #fff; border-color: var(--ink); }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 2px 2px 0 var(--ink); }
+  section.book { margin-top: 48px; padding: 22px 24px; border: 2px dashed var(--muted); border-radius: 14px; }
+  section.book::after { content: ""; display: block; clear: both; }
+  section.book .cover { float: left; width: 160px; margin: 4px 22px 8px 0; border: 2px solid var(--ink);
+    border-radius: 6px; box-shadow: 4px 5px 0 color-mix(in srgb, var(--ink) 75%, transparent); }
+  @media (max-width: 560px) { section.book .cover { float: none; display: block; margin: 0 auto 14px; } }
+  section.book h2 { font-family: "Caveat", cursive; font-size: 40px; margin: 0 0 6px; }
+  footer { margin-top: 36px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="author">MAKSIM BOIKO</div>
+    <h1>Unity <span>6</span></h1>
+    <div class="sub">from your first game to publishing</div>
+    <p>Two games from the book, from a small arcade to an action game with a boss. Play them right in your browser, download Windows and macOS builds, and explore the source code.</p>
+  </header>
+
+  <div class="games">
+    <article class="game">
+      <img src="screenshots/crystal_gameplay.jpg" alt="Crystal Collector: a ball on a floating island collecting crystals">
+      <div class="body">
+        <h2>Crystal Collector</h2>
+        <div class="meta">The book's first game · Chapter 10</div>
+        <p>Roll a ball across floating islands and collect every crystal before time runs out. Don't fall off, and watch out for the spike balls!</p>
+        <div class="keys">WASD — roll · Space — jump · Esc — pause</div>
+        <div class="buttons">
+          <a class="btn play" href="crystal-collector/">▶ Play</a>
+          <a class="btn" href="https://github.com/LivelyPuer/unity6-book-projects-en/releases">Download</a>
+          <a class="btn" href="https://github.com/LivelyPuer/unity6-book-projects-en/tree/main/CrystalCollector">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="game">
+      <img src="screenshots/ruins_gameplay.jpg" alt="Ruins: a knight in a ruined hall facing skeletons">
+      <div class="body">
+        <h2>Ruins</h2>
+        <div class="meta">The big project · Chapters 27–28</div>
+        <p>A knight explores ancient ruins: skeleton fights, keys and levers, three altars, save shrines and a two-phase Guardian boss.</p>
+        <div class="keys">WASD — move · Shift — sprint · LMB — attack · Ctrl — roll · E — interact · Q — potion · Esc — pause</div>
+        <div class="buttons">
+          <a class="btn play" href="ruins/">▶ Play</a>
+          <a class="btn" href="https://github.com/LivelyPuer/unity6-book-projects-en/releases">Download</a>
+          <a class="btn" href="https://github.com/LivelyPuer/unity6-book-projects-en/tree/main/Ruins">Code</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <section class="book">
+    <img class="cover" src="book-cover.jpg" alt="Cover of the book Unity 6: From Your First Game to Publishing">
+    <h2>The book</h2>
+    <p><b>Maksim Boiko. <i>Unity 6: From Your First Game to Publishing</i>.</b> A complete hands-on guide: the editor and C# from scratch, physics, URP graphics and shaders, animation from Mecanim to procedural, design patterns, AI, saves, optimization, testing, builds and publishing to Steam, Google Play and itch.io.</p>
+    <!-- TODO: add the Amazon link once the book is live -->
+    <p>Coming soon on Amazon (Kindle and paperback).</p>
+    <p><b>About the author.</b> Maksim Boiko is the founder of the game publisher Devilime, a game developer and entrepreneur. He organizes game development events and hackathons: the <a href="https://gameday73.ru/">Gameday</a> festival and the <a href="https://limegames-hack.ru/">LimeGames Hack</a> hackathon.</p>
+    <p><b>Get in touch.</b> Email <a href="mailto:maxkzboiko@gmail.com">maxkzboiko@gmail.com</a> · <a href="https://t.me/krest_leveosso">Telegram</a> · Telegram channel <a href="https://t.me/gamedev_ulsk">GameDev Ulyanovsk</a> (in Russian)</p>
+  </section>
+
+  <footer>
+    Source code on <a href="https://github.com/LivelyPuer/unity6-book-projects-en">GitHub</a>, MIT license.
+    Models by KayKit (Kay Lousberg) and Kenney, CC0. The web versions work best in desktop browsers.
+  </footer>
+</main>
+</body>
+</html>
